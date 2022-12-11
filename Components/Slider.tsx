@@ -1,6 +1,5 @@
 import { ArrowLeftOutlined, ArrowRightOutlined, Directions } from '@mui/icons-material'
-import { Button } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -33,7 +32,7 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
-  transform: translateX(${props => props.slideNumber * -100}vw);
+  transform: translateX(${props => props. slideNumber * -100}vw);
   transition: all 1.5s ease;
 `;
 
@@ -70,71 +69,71 @@ const Desc = styled.p`
   letter-spacing: 3px;
 `;
 
-// const Button = styled.button`
-//   padding: 10px;
-//   font-size: 20px;
-//   background-color: transparent;
-//   cursor: pointer;
-// `;
 
+const Button = styled.button`
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+`;
 
 
 const Slider = () => {
-    const [slideNumber, setSlideNumber] = useState(0)
+  const [slideNumber, setSlideNumber] = useState(0)
 
-    const handleClick = (direction) => {
-        if (direction === 'left') {
-            setSlideNumber(slideNumber > 0 ? slideNumber - 1 : 2)
-        }
-        else {
-            setSlideNumber(slideNumber < 2 ? slideNumber + 1 : 0)
-        }
+  const handleClick = (direction) => {
+    if (direction === 'left') {
+      setSlideNumber(slideNumber > 0 ? slideNumber - 1 : 2)
     }
+    else {
+      setSlideNumber(slideNumber < 2 ? slideNumber + 1 : 0)
+    }
+  }
 
 
 
-    return (
-        <Container>
-            <Arrow direction="left">
-                <ArrowLeftOutlined onClick={() => handleClick("left")} />
-            </Arrow>
-            <Wrapper slideNumber={slideNumber}>
-                <Slide bg="f5fafd">
-                    <ImgContainer>
-                        <Image src='/img/ad1.png' />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title> Summer Sale </Title>
-                        <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
-                        <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="fcf1ed">
-                    <ImgContainer>
-                        <Image src='/img/ad2.png' />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title> Winter Sale </Title>
-                        <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
-                        <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="f5fafd">
-                    <ImgContainer>
-                        <Image src='/img/ad3.png' />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title> Popular Sale </Title>
-                        <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
-                        <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
-                    </InfoContainer>
-                </Slide>
-            </Wrapper>
-            <Arrow direction="right">
-                <ArrowRightOutlined onClick={() => handleClick("right")} />
-            </Arrow>
-        </Container>
-    )
+  return (
+    <Container>
+      <Arrow direction="left">
+        <ArrowLeftOutlined onClick={() => handleClick("left")} />
+      </Arrow>
+      <Wrapper slideNumber={slideNumber}>
+        <Slide bg="f5fafd">
+          <ImgContainer>
+            <Image src='/img/ad1.png' />
+          </ImgContainer>
+          <InfoContainer>
+            <Title> Summer Sale </Title>
+            <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
+            <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
+          </InfoContainer>
+        </Slide>
+        <Slide bg="fcf1ed">
+          <ImgContainer>
+            <Image src='/img/ad2.png' />
+          </ImgContainer>
+          <InfoContainer>
+            <Title> Winter Sale </Title>
+            <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
+            <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
+          </InfoContainer>
+        </Slide>
+        <Slide bg="f5fafd">
+          <ImgContainer>
+            <Image src='/img/ad3.png' />
+          </ImgContainer>
+          <InfoContainer>
+            <Title> Popular Sale </Title>
+            <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
+            <Button> Shop Now!</Button>
+          </InfoContainer>
+        </Slide>
+      </Wrapper>
+      <Arrow direction="right">
+        <ArrowRightOutlined onClick={() => handleClick("right")} />
+      </Arrow>
+    </Container>
+  )
 }
 
 export default Slider

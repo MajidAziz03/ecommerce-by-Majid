@@ -1,5 +1,6 @@
 import { SearchSharp, ShoppingBasket } from '@mui/icons-material'
-import { Badge, InputBase } from '@mui/material'
+import { Badge } from '@mui/material'
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -48,13 +49,23 @@ const Language = styled.span`
 
 const Search = styled.div`
     background-color: white;
-    padding: 0px 0px 0px 12px;
+    padding: 0px 0px 0px 10px;
     display: flex;
     border-radius: 5px;
     width: 47%;
     border: 1px solid lightgray;
     height: 32px;
 `
+
+
+const Input = styled.input`
+  border: none;
+  flex: 4;
+  padding-left: 5px;
+  width: 100%;
+`
+
+
 const Icon = styled.span`
     display: flex;
     justify-content: center;
@@ -63,6 +74,8 @@ const Icon = styled.span`
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     color: black;
+    flex: 1;
+    cursor: pointer;
 `
 
 const RightSec = styled.div`
@@ -89,17 +102,17 @@ const Navbar = () => {
                         EN
                     </Language>
                     <Search>
-                        <InputBase placeholder='Search here' />
+                        <Input placeholder='Search here' />
                         <Icon>
                             <SearchSharp />
                         </Icon>
                     </Search>
                 </Left>
-                <Center> <Logo>  Shop wid Majid </Logo> </Center>
+                <Link href={"/"}><Center> <Logo>  Shop wid Majid </Logo> </Center></Link>
                 <Right>
                     <RightSec>
-                        <BodyRight>SignIn </BodyRight>
-                        <BodyRight>SignUp </BodyRight>
+                        <Link href={"/login"}><BodyRight>SignIn </BodyRight></Link>
+                        <Link href={"/register"}><BodyRight>SignUp </BodyRight></Link>
                         <BodyRight> <Badge badgeContent={4} color="primary">
                             <ShoppingBasket />
                         </Badge> </BodyRight>
