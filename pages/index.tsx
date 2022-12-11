@@ -2,7 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Announcement from '../Components/Announcement'
 import Categories from '../Components/Categories'
+import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
+import Newsletter from '../Components/Newsletter'
 import Products from '../Components/Products'
 import Slider from '../Components/Slider'
 import styles from '../styles/Home.module.css'
@@ -20,6 +22,8 @@ export default function Home() {
       <Slider />
       <Categories />
       <Products />
+      <Newsletter />
+      <Footer />
     </>
   )
 }
