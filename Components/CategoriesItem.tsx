@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 
 type CatProps = {
-    item: {}[]
+    item: { id: number; img: string; title: string; }
 }
 
 const Container = styled.div`
@@ -39,7 +39,7 @@ color: white;
 const CategoriesItem = ({ item }: CatProps) => {
     return (
         <Container>
-            <Image src={item.img} />
+            <Image src={item.img} alt='' />
             <Info>
                 <Title>
                     {item.title}
