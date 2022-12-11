@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Announcement from '../Components/Announcement'
+import Categories from '../Components/Categories'
 import Navbar from '../Components/Navbar'
 import Slider from '../Components/Slider'
 import styles from '../styles/Home.module.css'
@@ -16,6 +17,7 @@ export default function Home() {
       <Announcement />
       <Navbar />
       <Slider />
+      <Categories />
     </>
   )
 }
