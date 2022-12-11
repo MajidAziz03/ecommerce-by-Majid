@@ -49,7 +49,7 @@ const Language = styled.span`
 
 const Search = styled.div`
     background-color: white;
-    padding: 0px 0px 0px 10px;
+    /* padding: 0px 0px 0px 10px; */
     display: flex;
     border-radius: 5px;
     width: 47%;
