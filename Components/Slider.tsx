@@ -1,6 +1,6 @@
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@mui/icons-material'
+import { ArrowLeftOutlined, ArrowRightOutlined, Directions } from '@mui/icons-material'
 import { Button } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -33,6 +33,8 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+  transform: translateX(${props => props.slideNumber * -100}vw);
+  transition: all 1.5s ease;
 `;
 
 const Slide = styled.div`
@@ -40,6 +42,7 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: #${props => props.bg};
 `;
 
 const ImgContainer = styled.div`
@@ -77,13 +80,26 @@ const Desc = styled.p`
 
 
 const Slider = () => {
+    const [slideNumber, setSlideNumber] = useState(0)
+
+    const handleClick = (direction) => {
+        if (direction === 'left') {
+            setSlideNumber(slideNumber > 0 ? slideNumber - 1 : 2)
+        }
+        else {
+            setSlideNumber(slideNumber < 2 ? slideNumber + 1 : 0)
+        }
+    }
+
+
+
     return (
         <Container>
             <Arrow direction="left">
-                <ArrowLeftOutlined />
+                <ArrowLeftOutlined onClick={() => handleClick("left")} />
             </Arrow>
-            <Wrapper>
-                <Slide>
+            <Wrapper slideNumber={slideNumber}>
+                <Slide bg="f5fafd">
                     <ImgContainer>
                         <Image src='/img/pizza.png' />
                     </ImgContainer>
@@ -93,9 +109,29 @@ const Slider = () => {
                         <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
                     </InfoContainer>
                 </Slide>
+                <Slide bg="fcf1ed">
+                    <ImgContainer>
+                        <Image src='/img/pizza.png' />
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title> Winter Sale </Title>
+                        <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
+                        <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
+                    </InfoContainer>
+                </Slide>
+                <Slide bg="f5fafd">
+                    <ImgContainer>
+                        <Image src='/img/pizza.png' />
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title> Popular Sale </Title>
+                        <Desc> DON'T COMPROMISE ON QUALITY FLAT 30% OFF ON ALL PRODUCTS </Desc>
+                        <Button variant='contained' color='primary' size='sm' > Shop Now!</Button>
+                    </InfoContainer>
+                </Slide>
             </Wrapper>
             <Arrow direction="right">
-                <ArrowRightOutlined />
+                <ArrowRightOutlined onClick={() => handleClick("right")} />
             </Arrow>
         </Container>
     )
