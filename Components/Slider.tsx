@@ -101,7 +101,7 @@ const Slider = () => {
             <Wrapper slideNumber={slideNumber}>
                 <Slide bg="f5fafd">
                     <ImgContainer>
-                        <Image src='/img/pizza.png' />
+                        <Image src='/img/ad1.png' />
                     </ImgContainer>
                     <InfoContainer>
                         <Title> Summer Sale </Title>
@@ -111,7 +111,7 @@ const Slider = () => {
                 </Slide>
                 <Slide bg="fcf1ed">
                     <ImgContainer>
-                        <Image src='/img/pizza.png' />
+                        <Image src='/img/ad2.png' />
                     </ImgContainer>
                     <InfoContainer>
                         <Title> Winter Sale </Title>
@@ -121,7 +121,7 @@ const Slider = () => {
                 </Slide>
                 <Slide bg="f5fafd">
                     <ImgContainer>
-                        <Image src='/img/pizza.png' />
+                        <Image src='/img/ad3.png' />
                     </ImgContainer>
                     <InfoContainer>
                         <Title> Popular Sale </Title>

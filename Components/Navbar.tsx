@@ -17,7 +17,8 @@ height: 100%;
 const Left = styled.div`
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    padding-left: 12px;
     align-items: center;
     gap: 1rem;
 `
