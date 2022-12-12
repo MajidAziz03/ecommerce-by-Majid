@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 import styled, { isStyledComponent } from 'styled-components';
+import { mobile } from '../Components/Responsive';
 
 const Container = styled.div`
     width: 100vw;
@@ -25,6 +26,8 @@ width: 40%;
 background-color: white;
 padding: 20px;
 flex-direction: column;
+  ${mobile({ width: "75%" })}
+
 
 `
 const Title = styled.h1`

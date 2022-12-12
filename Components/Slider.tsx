@@ -1,6 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined, Directions } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { mobile } from './Responsive';
 
 const Container = styled.div`
   width: 100%;
@@ -8,6 +9,8 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+${mobile({ display: "none" })}
+
 `;
 
 const Arrow = styled.div`
@@ -32,7 +35,7 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
-  transform: translateX(${props => props. slideNumber * -100}vw);
+  transform: translateX(${props => props.slideNumber * -100}vw);
   transition: all 1.5s ease;
 `;
 

@@ -3,19 +3,21 @@ import { Badge } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
-import {mobile} from './Responsive'
+import { mobile } from './Responsive'
 
 const Container = styled.div`
 height: 60px;
 background-color: transparent;
 color: black;
-${mobile({backgroundColor:"red"})}
+${mobile({ height: "50px" })}
 `
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
 height: 100%;
+${mobile({ padding: "10px 0px" })}
+
 `
 const Left = styled.div`
     flex: 1;
@@ -38,14 +40,20 @@ const Logo = styled.h1`
 font-size: 22px;
 color: black;
 font-weight: 600;
+${mobile({ fontSize: "18px", marginLeft: "7px" })}
+
 `
 
 const Right = styled.div`
     flex: 1;
     justify-content: flex-end;
+${mobile({ justifyContent: "center" })}
+
 `
 const Language = styled.span`
     font-size: 14px;
+${mobile({ display: "none" })}
+
 
 `
 
@@ -57,6 +65,8 @@ const Search = styled.div`
     width: 47%;
     border: 1px solid lightgray;
     height: 32px;
+    border: "none"
+
 `
 
 
@@ -65,6 +75,8 @@ const Input = styled.input`
   flex: 4;
   padding-left: 5px;
   width: 100%;
+${mobile({ width: "50px", border: "1px solid lightgray" })}
+
 `
 
 
@@ -78,6 +90,8 @@ const Icon = styled.span`
     color: black;
     flex: 1;
     cursor: pointer;
+${mobile({ border: "1px solid lightgray" })}
+
 `
 
 const RightSec = styled.div`
@@ -86,12 +100,17 @@ justify-content: flex-end;
 align-items: center;
 gap: 1rem;
 margin-right: 22px;
+${mobile({ gap: "0.8rem" })}
+
+
 `
 const BodyRight = styled.span`
     font-size: 18px;
     font-weight: 500;
     color: black;
     cursor: pointer;
+${mobile({ fontSize: "14px" })}
+
 `
 
 

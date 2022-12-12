@@ -1,6 +1,6 @@
 import { Button } from "@mui/material"
 import styled from "styled-components"
-
+import { mobile } from "./Responsive"
 
 
 type CatProps = {
@@ -16,6 +16,8 @@ const Container = styled.div`
 const Image = styled.img`
 width: 100%;
 height: 70vh;
+${mobile({ height: "58vh" })}
+
 `
 
 const Info = styled.div`
