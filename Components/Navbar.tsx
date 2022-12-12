@@ -3,11 +3,13 @@ import { Badge } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
+import {mobile} from './Responsive'
 
 const Container = styled.div`
 height: 60px;
 background-color: transparent;
 color: black;
+${mobile({backgroundColor:"red"})}
 `
 const Wrapper = styled.div`
 display: flex;
