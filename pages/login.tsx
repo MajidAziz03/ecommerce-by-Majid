@@ -88,6 +88,11 @@ const Login = () => {
                     <Button>SignIn</Button>
                 </Form>
                 <Details>
+                    Forgot Password?
+                    <Link href={'/register'}><Anc>Recover</Anc></Link>
+
+                </Details>
+                <Details>
                     Don't have an Account?
                     <Link href={'/register'}><Anc>Create a new one</Anc></Link>
                 </Details>
