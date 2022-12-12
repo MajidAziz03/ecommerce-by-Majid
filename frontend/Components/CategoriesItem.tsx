@@ -1,4 +1,5 @@
 import { Button } from "@mui/material"
+import Link from "next/link"
 import styled from "styled-components"
 import { mobile } from "./Responsive"
 
@@ -41,13 +42,15 @@ color: white;
 const CategoriesItem = ({ item }: CatProps) => {
     return (
         <Container>
-            <Image src={item.img} alt='' />
-            <Info>
-                <Title>
-                    {item.title}
-                </Title>
-                <Button variant="contained" size="small" sx={{ backgroundColor: "white", color: "gray", fontWeight: "600", "&:hover": { border: "1px solid gray", backgroundColor: "white", } }}> Shop Now! </Button>
-            </Info>
+            <Link href={`/products/${item.cat}`}>
+                <Image src={item.img} alt='' />
+                <Info>
+                    <Title>
+                        {item.title}
+                    </Title>
+                    <Button variant="contained" size="small" sx={{ backgroundColor: "white", color: "gray", fontWeight: "600", "&:hover": { border: "1px solid gray", backgroundColor: "white", } }}> Shop Now! </Button>
+                </Info>
+            </Link>
         </Container>
     )
 }
