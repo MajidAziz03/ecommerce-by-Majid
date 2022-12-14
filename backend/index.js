@@ -7,6 +7,8 @@ const authRoutes = require('./routes/auth.js')
 const productRoutes = require('./routes/product.js')
 const cartRoutes = require('./routes/cart.js')
 const orderRoutes = require('./routes/order.js')
+const stripeRoutes = require('./routes/stripe.js')
+const cors = require('cors')
 
 
 mongoose.set('strictQuery', true);
@@ -16,13 +18,14 @@ mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTop
     console.log("Error in Database", err.message)
 })
 
-
+app.use(cors())
 app.use(express.json())
 app.use('/api/users', userRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/products', productRoutes)
 app.use('/api/cart', cartRoutes)
-app.use('/api/order', orderRoutes)
+app.use('/api/orders', orderRoutes)
+app.use('/api/checkout', stripeRoutes)
 
 
 app.get('/', (req, res) => {
