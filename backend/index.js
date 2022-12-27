@@ -8,7 +8,7 @@ const productRoutes = require('./routes/product.js')
 const cartRoutes = require('./routes/cart.js')
 const orderRoutes = require('./routes/order.js')
 const stripeRoutes = require('./routes/stripe.js')
-const cors = require('cors')
+const cors = require('cors') 
 
 
 mongoose.set('strictQuery', true);

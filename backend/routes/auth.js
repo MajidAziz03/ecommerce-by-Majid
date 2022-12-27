@@ -41,21 +41,12 @@ router.post('/login', async (req, res) => {
             { expiresIn: "3d" }
         )
         const { password, ...others } = user._doc;
-
         res.status(200).json({ ...others, accessToken })
     } catch (error) {
         res.status(401).json("error in signing account", error.message)
     }
 
 })
-
-
-
-
-
-
-
-
 
 
 

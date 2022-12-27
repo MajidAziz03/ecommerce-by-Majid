@@ -38,7 +38,7 @@ const Select = styled.select`
 z-index: 2;
 margin: 20px;
 padding: 10px;
-cursor:pointer;
+cursor: pointer;
   ${mobile({ margin: "10px 0px" })}
 
 
@@ -49,19 +49,7 @@ const Option = styled.option`
 `
 
 const ProductList = () => {
-    const router = useRouter();
-    const category = router.asPath.split('/')[2]
-    const [filters, setFilters] = useState({})
-    const [sort, setSort] = useState("newest")
 
-    const handleFilters = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        setFilters({
-            ...filters,
-            [e.target.name]: value,
-        })
-        console.log(filters)
-    }
     return (
         <>
             <Navbar />
@@ -72,7 +60,7 @@ const ProductList = () => {
                     <FilterText>
                         Filter Products:
                     </FilterText>
-                    <Select name='color' onChange={handleFilters} >
+                    <Select name='color' >
                         <Option disabled >
                             Color
                         </Option>
@@ -83,7 +71,7 @@ const ProductList = () => {
                         <Option>yellow</Option>
                         <Option>green</Option>
                     </Select>
-                    <Select name='size' onChange={handleFilters} >
+                    <Select name='size'>
                         <Option disabled >
                             Size
                         </Option>
@@ -99,8 +87,8 @@ const ProductList = () => {
                     <FilterText>
                         Sort Products:
                     </FilterText>
-                    <Select onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSort(e.target.value)}>
-                        <Option value={"newest"}   >
+                    <Select>
+                        <Option value={"newest"}  >
                             Newest
                         </Option>
                         <Option value={"low to high"} >Price (low to high)</Option>
@@ -108,7 +96,7 @@ const ProductList = () => {
                     </Select>
                 </Filter>
             </FilterContainer>
-            <Products category={category} filters={filters} sort={sort} />
+            <Products />
             <Newsletter />
             <Footer />
         </>

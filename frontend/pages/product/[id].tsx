@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Announcement from '../../Components/Announcement';
 import Footer from '../../Components/Footer';
 import Navbar from '../../Components/Navbar';
@@ -6,6 +6,12 @@ import Newsletter from '../../Components/Newsletter';
 import styled from 'styled-components';
 import { Add, Remove } from '@mui/icons-material';
 import { mobile } from '../../Components/Responsive';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../redux/cartRedux';
+
+
 
 const Wrapper = styled.div`
   padding: 50px;
@@ -121,50 +127,73 @@ const Button = styled.button`
 
 
 const Product = () => {
-    return (
-        <>
-            <Navbar />
-            <Announcement />
-            <Wrapper>
-                <ImgContainer>
-                    <Image src='/img/ad1.png' />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>Denim Shirt</Title>
-                    <Desc>Lorem, ipsum dolor.lorem1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, exercitationem debitis?Lorem ipsum dolor sit amet consectetur.</Desc>
-                    <Price>$20</Price>
-                    <FilterContainer>
-                        <Filter>
-                            <FilterTitle>Color</FilterTitle>
-                            <FilterColor color="black" />
-                            <FilterColor color="darkblue" />
-                            <FilterColor color="gray" />
-                        </Filter>
-                        <Filter>
-                            <FilterTitle>Size</FilterTitle>
-                            <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
-                                <FilterSizeOption>S</FilterSizeOption>
-                                <FilterSizeOption>M</FilterSizeOption>
-                                <FilterSizeOption>L</FilterSizeOption>
-                                <FilterSizeOption>XL</FilterSizeOption>
-                            </FilterSize>
-                        </Filter>
-                    </FilterContainer>
-                    <AddContainer>
-                        <AmountContainer>
-                            <Remove />
-                            <Amount>1</Amount>
-                            <Add />
-                        </AmountContainer>
-                        <Button>ADD TO CART</Button>
-                    </AddContainer>
-                </InfoContainer>
-            </Wrapper>
-            <Newsletter />
-            <Footer />
-        </>
+  const dispatch = useDispatch()
+  // const [product, setProduct] = useState({})
+  // const location = useRouter()
+  // const id = location.pathname.split('/')[2]
+
+  // useEffect(() => {
+  //   const getProduct = async () => {
+  //     try {
+  //       const res = await axios.get(`http://localhost:5000/api/products/find/${id}`)
+  //       setProduct(res.data)
+  //     } catch (error) {
+  //       console.log("error in product", error)
+  //     }
+  //   }
+  //   getProduct();
+  // }, [id])
+
+  const handleClick = () => {
+    dispatch(
+      addProduct({ quantity })
     )
+  }
+
+  return (
+    <>
+      <Navbar />
+      <Announcement />
+      <Wrapper>
+        <ImgContainer>
+          <Image src='/img/ad1.png' />
+        </ImgContainer>
+        <InfoContainer>
+          <Title>Denim Shirt</Title>
+          <Desc>Lorem, ipsum dolor.lorem1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, exercitationem debitis?Lorem ipsum dolor sit amet consectetur.</Desc>
+          <Price>$20</Price>
+          <FilterContainer>
+            <Filter>
+              <FilterTitle>Color</FilterTitle>
+              <FilterColor color="black" />
+              <FilterColor color="darkblue" />
+              <FilterColor color="gray" />
+            </Filter>
+            <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                <FilterSizeOption>XS</FilterSizeOption>
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
+          <AddContainer>
+            <AmountContainer>
+              <Remove />
+              <Amount>1</Amount>
+              <Add />
+            </AmountContainer>
+            <Button onClick={handleClick}>ADD TO CART</Button>
+          </AddContainer>
+        </InfoContainer>
+      </Wrapper>
+      <Newsletter />
+      <Footer />
+    </>
+  )
 }
 
 export default Product;

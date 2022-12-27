@@ -1,11 +1,14 @@
 import { Favorite, HeatPumpSharp, Search, ShoppingBasket } from "@mui/icons-material"
+import axios from "axios"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 
-
-type ProProps = {
-    item: { id: number, img: string }
-}
+// type ProProps = {
+//   item: { id: number, img: string }
+// }
 
 const Info = styled.div`
   opacity: 0;
@@ -68,24 +71,27 @@ const Icon = styled.div`
   }
 `
 
-const Product = ({ item }: ProProps) => {
-    return (
-        <Container>
-            <Image src={item.img} />
-            <Circle />
-            <Info>
-                <Icon>
-                    <ShoppingBasket />
-                </Icon>
-                <Icon>
-                    <Search />
-                </Icon>
-                <Icon>
-                    <Favorite />
-                </Icon>
-            </Info>
-        </Container>
-    )
+const Product = () => {
+
+  return (
+    <Container>
+      <Image
+        src="/img/ad3.png"
+      />
+      <Circle />
+      <Info>
+        <Icon>
+          <ShoppingBasket />
+        </Icon>
+        <Icon>
+          <Search />
+        </Icon>
+        <Icon>
+          <Favorite />
+        </Icon>
+      </Info>
+    </Container>
+  )
 }
 
 export default Product;

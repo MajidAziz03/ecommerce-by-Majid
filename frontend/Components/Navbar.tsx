@@ -2,6 +2,7 @@ import { SearchSharp, ShoppingBasket } from '@mui/icons-material'
 import { Badge } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { mobile } from './Responsive'
 
@@ -115,6 +116,8 @@ ${mobile({ fontSize: "14px" })}
 
 
 const Navbar = () => {
+    const quantity = useSelector(state => state.cart.quantity)
+    console.log(quantity)
     return (
         <Container>
             <Wrapper>
@@ -134,7 +137,7 @@ const Navbar = () => {
                     <RightSec>
                         <Link href={"/login"}><BodyRight>SignIn </BodyRight></Link>
                         <Link href={"/register"}><BodyRight>SignUp </BodyRight></Link>
-                        <BodyRight> <Badge badgeContent={4} color="primary">
+                        <BodyRight> <Badge badgeContent={quantity} color="primary">
                             <ShoppingBasket />
                         </Badge> </BodyRight>
                     </RightSec>
